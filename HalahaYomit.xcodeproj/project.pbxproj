@@ -42,9 +42,13 @@
 		B61F3DFA1C02F73D00CD29DF /* trigonometry.c in Sources */ = {isa = PBXBuildFile; fileRef = B61F3DD31C02F73D00CD29DF /* trigonometry.c */; };
 		B6D868E31C0F7C7A00661D0D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D868E11C0F7C7A00661D0D /* Fabric.framework */; };
 		B6D868E41C0F7C7A00661D0D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D868E21C0F7C7A00661D0D /* Crashlytics.framework */; };
+		F2E3735128C52209DB6C06E1 /* libPods-HalahaYomit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 980263BEA1B7E12F4C778D24 /* libPods-HalahaYomit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		980263BEA1B7E12F4C778D24 /* libPods-HalahaYomit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HalahaYomit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9829112178F01F613BFBA128 /* Pods-HalahaYomit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HalahaYomit.release.xcconfig"; path = "Pods/Target Support Files/Pods-HalahaYomit/Pods-HalahaYomit.release.xcconfig"; sourceTree = "<group>"; };
+		B5DD6FBE015C5D51DAA3EEA9 /* Pods-HalahaYomit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HalahaYomit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HalahaYomit/Pods-HalahaYomit.debug.xcconfig"; sourceTree = "<group>"; };
 		B61F3D721C02F72800CD29DF /* HalahaYomit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HalahaYomit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61F3D761C02F72800CD29DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B61F3D781C02F72800CD29DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,17 +138,29 @@
 			files = (
 				B6D868E41C0F7C7A00661D0D /* Crashlytics.framework in Frameworks */,
 				B6D868E31C0F7C7A00661D0D /* Fabric.framework in Frameworks */,
+				F2E3735128C52209DB6C06E1 /* libPods-HalahaYomit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8377923F8F8D61BC2DFB167F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5DD6FBE015C5D51DAA3EEA9 /* Pods-HalahaYomit.debug.xcconfig */,
+				9829112178F01F613BFBA128 /* Pods-HalahaYomit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B61F3D691C02F72800CD29DF = {
 			isa = PBXGroup;
 			children = (
 				B61F3D741C02F72800CD29DF /* HalahaYomit */,
 				B61F3D731C02F72800CD29DF /* Products */,
+				8377923F8F8D61BC2DFB167F /* Pods */,
+				FCD8FC04309CE1DABBBF6D6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -394,6 +410,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FCD8FC04309CE1DABBBF6D6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				980263BEA1B7E12F4C778D24 /* libPods-HalahaYomit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,10 +425,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B61F3D8C1C02F72800CD29DF /* Build configuration list for PBXNativeTarget "HalahaYomit" */;
 			buildPhases = (
+				5B70D71267678CDF92A82CE0 /* Check Pods Manifest.lock */,
 				B61F3D6E1C02F72800CD29DF /* Sources */,
 				B61F3D6F1C02F72800CD29DF /* Frameworks */,
 				B61F3D701C02F72800CD29DF /* Resources */,
 				B6D868E01C0F7C3700661D0D /* ShellScript */,
+				B6075678BC979C1EC1054737 /* Embed Pods Frameworks */,
+				9C75E0D1EF1207E0165DC642 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -461,6 +488,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5B70D71267678CDF92A82CE0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C75E0D1EF1207E0165DC642 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HalahaYomit/Pods-HalahaYomit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6075678BC979C1EC1054737 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HalahaYomit/Pods-HalahaYomit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B6D868E01C0F7C3700661D0D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -620,6 +692,7 @@
 		};
 		B61F3D8D1C02F72800CD29DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5DD6FBE015C5D51DAA3EEA9 /* Pods-HalahaYomit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -627,6 +700,7 @@
 					"$(PROJECT_DIR)/HalahaYomit",
 				);
 				INFOPLIST_FILE = HalahaYomit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HALIMI.HalahaYomit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -635,6 +709,7 @@
 		};
 		B61F3D8E1C02F72800CD29DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9829112178F01F613BFBA128 /* Pods-HalahaYomit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -642,6 +717,7 @@
 					"$(PROJECT_DIR)/HalahaYomit",
 				);
 				INFOPLIST_FILE = HalahaYomit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HALIMI.HalahaYomit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
